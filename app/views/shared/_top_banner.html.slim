@@ -1,6 +1,6 @@
 .hero-unit style="padding: 100px; box-shadow: 1px 2px 2px #aaa;"
   .main-container
-    .row
+    .row-fluid
       .span2
         = image_tag "logo.png"
       .span9
@@ -40,7 +40,7 @@
         .home-blk-word2 灌水
         .home-blk-icon
           = image_tag "homeicon4.png",:size => "128"
-    .fl
+    .fr
       a.home-blk.home-blk-last.centerText href="/node5" class="#{ ( params[:node_name] == 'node5' || params[:node_id] == '5') ? 'home-blk-last-active' : '' }"
         .home-blk-word1 站务
         .home-blk-word2 反馈
