@@ -1,0 +1,36 @@
+zh-CN:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: 不能为空
+              taken: 已存在
+              invalid: 格式不正确
+            username:
+              blank: 不能为空
+              taken: 已存在
+            password:
+              too_short: 太短
+            password_confirmation:
+              too_short: 太短
+              confirmation: 与密码不一致
+            utype:
+              inclusion: 未包含
+            identity:
+              inclusion: 未包含
+        node:
+          attributes:
+            name:
+              blank: 不能为空
+        topic:
+          attributes:
+            name:
+              blank: 不能为空
+            content:
+              blank: 不能为空
+        topic_reply:
+          attributes:
+            content:
+              blank: 不能为空

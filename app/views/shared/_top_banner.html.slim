@@ -1,0 +1,48 @@
+.hero-unit style="padding: 100px; box-shadow: 1px 2px 2px #aaa;"
+  .main-container
+    .row
+      .span2
+        = image_tag "logo.png"
+      .span9
+        p
+        h2 Swift Home - 中国 Swift Language 社区
+        .clearfix
+          p.fl
+            | 感谢苹果，感谢Swift让我们学习开发IOS如此简单和
+            br/
+            | 让我们和 Swift 一起成长
+          p.fl
+            a.btn.btn-primary.btn-large.ml20 href='javascript:;'
+              | 立刻学习一下
+.main-container style="margin-top: -100px;"
+  .clearfix
+    .fl
+      a.home-blk.centerText href= "/" class="#{ (controller_name == 'home' && params[:node_name].blank?) || params[:node_id] == '1' ? 'home-blk-active' : '' }"
+        .home-blk-word1 Swift
+        .home-blk-word2 讨论
+        .home-blk-icon
+          = image_tag "homeicon1.png",:size => "128"
+    .fl
+      a.home-blk.centerText href="/node2" class="#{ (params[:node_name] == 'node2' || params[:node_id] == '2') ? 'home-blk-active' : '' }"
+        .home-blk-word1 Swift
+        .home-blk-word2 项目
+        .home-blk-icon
+          = image_tag "homeicon2.png",:size => "128"
+    .fl
+      a.home-blk.centerText href="/node3" class="#{ ( params[:node_name] == 'node3' || params[:node_id] == '3') ? 'home-blk-active' : '' }"
+        .home-blk-word1 Swift
+        .home-blk-word2 招聘
+        .home-blk-icon
+          = image_tag "homeicon3.png",:size => "128"
+    .fl
+      a.home-blk.centerText href="/node4" class="#{ ( params[:node_name] == 'node4' || params[:node_id] == '4') ? 'home-blk-active' : '' }"
+        .home-blk-word1 瞎扯
+        .home-blk-word2 灌水
+        .home-blk-icon
+          = image_tag "homeicon4.png",:size => "128"
+    .fl
+      a.home-blk.home-blk-last.centerText href="/node5" class="#{ ( params[:node_name] == 'node5' || params[:node_id] == '5') ? 'home-blk-last-active' : '' }"
+        .home-blk-word1 站务
+        .home-blk-word2 反馈
+        .home-blk-icon
+          = image_tag "homeicon5.png",:size => "128"

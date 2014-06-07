@@ -1,0 +1,23 @@
+!!!
+%html{ lang: "en" }
+  %head
+    %title Swift-Home
+    %meta{name: "keywords", content: "swift,swift语言,swift学习,swift论坛,swift社区"}
+    %meta{name: "description", content: "中国Swift社区,聚集了广大ios爱好者,交流探讨,分享经验"}
+
+    = stylesheet_link_tag  "application", media: "all"
+    = javascript_include_tag "application"
+    = stylesheet_link_tag(assets_resource) if asset_exist?(:stylesheets,"#{assets_resource}.css.scss")
+    = javascript_include_tag(assets_resource) if asset_exist?(:javascripts,"#{assets_resource}.js.coffee")
+    %link{rel: "shortcut icon", href: "/favicon.ico"}
+    %meta{ property: "qc:admins", content: "2156212676641207673566375" }
+
+    = csrf_meta_tags
+    = yield :head
+  %body
+    = render "shared/top"
+    = render "shared/top_banner"
+    = yield
+    #footer
+      = render "shared/footer"
+    = yield :js

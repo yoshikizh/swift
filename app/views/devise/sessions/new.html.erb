@@ -1,0 +1,27 @@
+<div class="main-container">
+  <h2>登录 Swift Home</h2>
+
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+    <%= render "shared/flash" %>
+    <div class="clearfix">
+      <div class="form-inputs fl">
+        <%= f.input :login %></p>
+        <%= f.input :password, required: false %>
+        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      </div>
+      <div class="fl" style="margin-left: 60px; margin-top: 20px;">
+        <%= render "shared/welcome" %>
+      </div>
+    </div>
+    <div class="form-actions">
+      <div class="clearfix">
+        <div class="fl">
+          <%= f.button :submit, "立刻登录", class: "btn btn-large btn-primary" %>
+        </div>
+        <div class="fl ml20">
+          <%= render "devise/shared/links" %>
+        </div>
+    </div>
+  <% end %>
+</div>

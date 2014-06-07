@@ -1,0 +1,50 @@
+.main-container
+  .topics
+    .title-bar
+      = link_to "所有话题"
+    .clearfix
+      .topic-list-warp.fl style="border-right: 1px solid rgb(237,237,237);"
+        ul.topic-list
+
+          - if @topics.count.zero?
+            p style="padding: 10px 20px 0px 20px; font-size: 20px;"
+              - if params[:keyword].present?
+                | 抱歉没有找到结果哦
+              - else
+                | 亲，还没有贴子哦，您可以点击右边的按钮发起一个帖哦
+                span style="padding-left: 70px;"
+                  | ------>
+          - else
+            - @topics.order("updated_at desc").each_with_index do |_topic,n|
+              li.clearfix class= (n % 2 == 1 ? "hover" : "")
+                .topic-avatar.fl
+                  - _topic_user = _topic.user
+                  = avatar_tag(_topic_user, :size => 32)
+                .topic-at.fl
+                  span style="color: grey; padding-right: 6px;"
+                    = _topic_user.username
+                  | 在
+                  = before_now _topic.created_at
+                  span style="color: grey;"
+                    | 发表
+                .topic-name.fl
+                  = link_to truncate(_topic.name,length: 40),node_topic_path(@node,_topic)
+      .topic-node-warp.fl
+        .topic-new-btn
+          = link_to "发表话题",new_node_topic_path(@node), class: "btn btn-primary btn-large"
+        .top-new-tip
+          | 不管发帖还是回复都可以得到积分哦，如果是被认可解决的问题，还能额外获得积分，还不赶紧参与~
+        | <hr/>
+        .top-nodes-title
+          | 相关节点
+        ul.topic-nodes
+          li= link_to "新人求助"
+          li= link_to "交流讨论"
+          li= link_to "原创教程"
+          li= link_to "转载文章"
+    hr/
+    .ml25
+      = paginate @topics
+
+coffee:
+  $ ->

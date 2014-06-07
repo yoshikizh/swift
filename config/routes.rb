@@ -1,9 +1,21 @@
 Rails.application.routes.draw do
+  get 'home/index'
+
+  captcha_route
+  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'home#index'
+  get '/search' => "home#index"
+  get '/:node_name' => "home#index"
+
+  resources :nodes do
+    resources :topics do
+      resource :topic_replies
+    end
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,0 +1,32 @@
+@import "mixins.css.scss";
+
+.field_with_errors {
+  position: relative;
+  span.error {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0
+  }
+}
+
+.pagination {
+  overflow: hidden; zoom: 1; border-radius: 4px;
+  span.page,span.last,span.next,span.first,span.prev{
+    display: block; float: left;
+    padding: 6px; background-color: rgb(222,222,222);
+    a {
+      color: rgb(58,54,51);
+      span{}
+    }
+  }
+  span.current {
+    color: white; background-color: #5c2b46;
+  }
+  span:last-child>a, .pagination>span:last-child>span,
+  span:first-child>a, .pagination>span:first-child>span { border-radius: 0px; }
+}
+
+
+@import "module.scss";
+

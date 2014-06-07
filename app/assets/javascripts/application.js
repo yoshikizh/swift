@@ -12,5 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//= require twitter/bootstrap
+//= require kindeditor
+//= require prettify
+//= require wysiwyg/external/jquery.hotkeys
+//= require wysiwyg/bootstrap-wysiwyg.js
+//= require base

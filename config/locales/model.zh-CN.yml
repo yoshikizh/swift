@@ -1,0 +1,22 @@
+zh-CN:
+  activerecord:
+    attributes:
+      user:
+        username: 用户名
+        name: 姓名
+        password: 密码
+        email: 邮箱
+        sign_in_count: 登录次数
+        last_sign_in_at: 最后登录时间
+        utype: 用户类别
+        identity: 身份
+        password_confirmation: 确认密码
+        login: 账号
+      node:
+        name: 名称
+        intro: 简介
+      topic:
+        name: 标题
+        content: 内容
+      topic_reply:
+        content: 内容

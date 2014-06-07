@@ -1,0 +1,28 @@
+<div class="main-container">
+  <h2>成为 Swift Home 的一员</h2>
+
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+    <%= render "shared/flash" %>
+    <div class="clearfix">
+      <div class="form-inputs fl">
+        <%= f.input :email, required: true, autofocus: true %>
+        <%= f.input :username, required: true, autofocus: true %>
+        <%= f.input :password, required: true %>
+        <%= f.input :password_confirmation, required: true %>
+      </div>
+      <div class="fl" style="margin-left: 60px; margin-top: 20px;">
+        <%= render "shared/welcome" %>
+      </div>
+    </div>
+    <div class="form-actions">
+      <div class="clearfix">
+        <div class="fl">
+          <%= f.button :submit, "立刻加入", class: "btn btn-large btn-primary" %>
+        </div>
+        <div class="fl ml20">
+          <%= render "devise/shared/links" %>
+        </div>
+    </div>
+  <% end %>
+</div>

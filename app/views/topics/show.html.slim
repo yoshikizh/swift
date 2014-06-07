@@ -1,0 +1,104 @@
+scss:
+  .main-container {
+    .topics{
+      .topic-warp{
+        .topic-content {
+          ol { list-style: decimal; }
+          ul { list-style: disc; }
+        }
+      }
+      .reply-warp{
+        .reply-info {
+          .reply-content{
+            .reply-content-text{
+              ol { list-style: decimal; }
+              ul { list-style: disc; }
+            }
+          }
+        }
+      }
+    }
+  }
+
+- _replies = resource.replies.page(params[:page]).per(15)
+.main-container
+  .topics
+    .title-bar.clearfix
+      .fl
+        | 该话题已有
+        span style="color: grey; padding: 0 3px;"
+          = _replies.count
+        |条评论
+      .fr
+        = paginate _replies
+    .topic-warp
+      .topic-info.clearfix
+        - _topic_user = resource.user
+        .topic-info-left.fl
+          .topic-avatar
+            = avatar_tag(_topic_user, :size => 64)
+        .topic-info-right.fl
+          .topic-name
+            = resource.name
+          .topic-at
+            = link_to _topic_user.username,"#"
+            span style="padding:0px 6px;"
+              | 发表于
+            = before_now resource.created_at
+          .topic-point
+            = _topic_user.point
+            span style="color: rgb(158,130,130); padding-left: 4px; padding-right: 8px;"
+              | 积分
+            ||
+            span style="padding-left: 8px;"
+              = _topic_user.stb
+            span style="color: rgb(158,130,130); padding-left: 4px;"
+              | 斯特币
+      .topic-content
+        - begin
+          = markdown resource.content
+        - rescue
+          | 语法格式错误！
+    .reply-warp
+      - _replies.order("created_at desc").each_with_index do |_reply,index|
+        .reply-info.clearfix
+          - _reply_user = _reply.user
+          .reply-info-right.fr
+            = avatar_tag(_reply_user, :size => 48)
+          .reply-content.fr
+            .reply-content-text
+              - begin
+                = markdown _reply.content
+              - rescue
+                | 语法格式错误！
+
+            hr/
+            .reply-at-warp.clearfix
+              .reply-at.fl
+                = link_to _reply_user.username,"#"
+                span style="padding:0px 6px;"
+                  | 回复于
+                = before_now _reply.created_at
+              .reply-point.fr
+                = _reply_user.point
+                span style="color: rgb(158,130,130); padding-left: 4px; padding-right: 8px;"
+                  | 积分
+                ||
+                span style="padding-left: 8px;"
+                  = _reply_user.stb
+                span style="color: rgb(158,130,130); padding-left: 4px;"
+                  | 斯特币
+    hr/
+    .ml25
+      = paginate _replies
+
+
+.main-container
+  h2 回复话题
+
+  = simple_form_for(@reply || TopicReply.new,url: node_topic_topic_replies_path(params[:node_id],params[:id])) do |f|
+    = f.error_notification
+    = render "shared/flash"
+    input type="hidden" name="topic_reply[topic_id]" value="#{params[:id]}"
+    input type="hidden" name="topic_reply[user_id]" value="#{current_user.id}"
+    = render partial: "shared/markdown_editor",locals: { f: f }

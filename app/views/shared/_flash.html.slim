@@ -1,0 +1,15 @@
+- if flash[:alert].present?
+  .alert.alert-error
+    button.close type="button" data-dismiss="alert"
+      | &times;
+    strong
+      span style="padding: 0px 4px;"
+        | 错误!
+      = flash[:alert]
+
+- if flash[:notice].present?
+  .alert.alert-success
+    button.close type="button" data-dismiss="alert"
+      | &times;
+    strong
+      = flash[:notice]
