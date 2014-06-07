@@ -18,7 +18,6 @@
 .rvmrc
 Gemefile.lock
 /config/unicorn.rb
-/config/deploy.rb
 /public/uploads/*
 /public/static_subdistricts/*
 /public/static_subdistricts_photos/*
