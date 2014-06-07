@@ -6,10 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-admin = User.create  username: "秀秀", email: "admin@swift-home.com",
-                     password: 'zhanghui0411', confirmed_at: Time.now, utype: "admin"
-
-
 node = Node.create name: "node1" ,intro: "讨论"
 node = Node.create name: "node2" ,intro: "项目"
 node = Node.create name: "node3" ,intro: "招聘"
