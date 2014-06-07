@@ -7,7 +7,7 @@ class TopicsController < InheritedResources::Base
     @topic.tag = params[:tag]
     current_user.add_point(10)
     if @topic.save
-      redirect_to "/#{@topic.node.name}",notice: "感谢您发表主题 ~ 积分 + 10"
+      redirect_to node_topic_path(@topic.node_id,@topic),notice: "感谢您发表主题 ~ 积分 + 10"
     else
       render :new
     end
