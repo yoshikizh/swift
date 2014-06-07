@@ -6,10 +6,10 @@
     <%= render "shared/flash" %>
     <div class="clearfix">
       <div class="form-inputs fl">
-        <%= f.input :email, required: true, autofocus: true %>
-        <%= f.input :username, required: true, autofocus: true %>
-        <%= f.input :password, required: true %>
-        <%= f.input :password_confirmation, required: true %>
+        <%= f.input :email, required: true, autofocus: true, input_html: { placeholder: "输入邮箱" } %>
+        <%= f.input :username, required: true, autofocus: true,input_html: { placeholder: "输入用户名" } %>
+        <%= f.input :password, required: true,input_html: { placeholder: "输入密码" } %>
+        <%= f.input :password_confirmation, required: true,input_html: { placeholder: "确认密码" } %>
       </div>
       <div class="fl" style="margin-left: 60px; margin-top: 20px;">
         <%= render "shared/welcome" %>

@@ -6,8 +6,8 @@
     <%= render "shared/flash" %>
     <div class="clearfix">
       <div class="form-inputs fl">
-        <%= f.input :login %></p>
-        <%= f.input :password, required: false %>
+        <%= f.input :login,input_html: { placeholder: "用户名或邮箱" } %></p>
+        <%= f.input :password, required: false, input_html: { placeholder: "请输入密码" } %>
         <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
       </div>
       <div class="fl" style="margin-left: 60px; margin-top: 20px;">
