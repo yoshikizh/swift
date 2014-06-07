@@ -71,7 +71,6 @@ group :development do
   gem 'rvm-capistrano'
   gem 'capistrano'
   gem 'capistrano_colors'
-  gem 'rvm-capistrano'
   gem 'capistrano-maintenance'
   gem 'thin'
   gem 'pry-rails'

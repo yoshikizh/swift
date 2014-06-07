@@ -10,7 +10,7 @@ set :repository,  "git@github.com:yoshikizh/swift.git"
 set :scm, :git
 set :scm_username,   "root"
 
-server "swift-home.com", :app, :web, :db, :primary => true
+server "115.29.105.133", :app, :web, :db, :primary => true
 
 set :default_run_options, :pty => true
 
