@@ -43,11 +43,12 @@ a.home-blk:hover { text-decoration: none; }
     ul.topic-list {
       padding-top: 12px; min-height: 480px; width: 700px;
       li {
-        padding: 4px;
+        padding: 12px 4px;
         .topic-avatar{ width: 32px; }
         .topic-at{ width: 180px; margin-left: 12px; margin-top: 6px;}
+        .topic-reply-counts.fl { width: 40px; margin-left: 12px; margin-top: 6px; }
         .topic-tag { width: 64px; margin-left: 12px; margin-top: 6px; }
-        .topic-name{ margin-top: 6px; width: 380px; overflow: hidden;}
+        .topic-name{ width: 340px; }
       }
       li.hover { background-color: white; }
     }

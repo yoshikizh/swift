@@ -4,6 +4,8 @@
       = link_to "所有话题", @node.id == 1 ? "/" : "/node#{@node.id}", class: params[:tag].blank? ? "active" : ""
       - Node::NODES[@node.id].each do |_tag|
         = link_to _tag, @node.id == 1 ? "/?tag=#{_tag}" : "/node#{Node.find_id_by_tag(_tag)}?tag=#{_tag}", class: params[:tag] == _tag ? "active" : ""
+      .fr.mr20 style="color: grey;"
+        | 欢迎新会员 &nbsp; #{ User.last.username } &nbsp; 加入
     = render "shared/flash"
     .clearfix
       .topic-list-warp.fl style="border-right: 1px solid rgb(237,237,237);"
@@ -22,7 +24,8 @@
               li.clearfix class= (n % 2 == 1 ? "hover" : "")
                 .topic-avatar.fl
                   - _topic_user = _topic.user
-                  = avatar_tag(_topic_user, :size => 32)
+                  - _topic_replies = _topic.replies
+                  = avatar_tag(_topic_user, :size => 32 )
                 .topic-at.fl
                   span style="color: grey; padding-right: 6px;"
                     = _topic_user.username
@@ -32,8 +35,27 @@
                     | 发表
                 .topic-tag.fr
                   = link_to (_topic.tag || "无标签"),"/node#{Node.find_id_by_tag(_topic.tag)}?tag=#{_topic.tag}"
-                .topic-name.fl
-                  = link_to truncate(_topic.name,length: 40),node_topic_path(@node,_topic)
+                .topic-name.fl.relative
+                  - _last_reply = _topic_replies.last
+                  - if _last_reply.blank?
+                    .absolute style="top: 6px; left: 0;"
+                      = link_to truncate(_topic.name,length: 40),node_topic_path(@node,_topic)
+                  - else
+                      .absolute style="top: -8px; left: 0;"
+                        = link_to truncate(_topic.name,length: 32),node_topic_path(@node,_topic)
+                      - _last_reply_user = _last_reply.user
+                      .topic-at2.absolute style="top: 16px; left: 0; font-size: 11px;"
+                        span.badge.badge-important
+                          = _topic_replies.count
+                          | 个回复
+
+                        span style="color: grey; padding-right: 6px; padding-left: 12px;"
+                          = _last_reply_user.username
+                        | 在
+                        = before_now _last_reply.created_at
+                        span style="color: grey;"
+                          | 回复
+
       .topic-node-warp.fl
         .topic-new-btn
           = link_to "发表话题",new_node_topic_path(@node), class: "btn btn-primary btn-large"
