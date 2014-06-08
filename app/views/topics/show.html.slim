@@ -95,10 +95,10 @@ scss:
 
 .main-container
   h2 回复话题
-
   = simple_form_for(@reply || TopicReply.new,url: node_topic_topic_replies_path(params[:node_id],params[:id])) do |f|
     = f.error_notification
     = render "shared/flash"
     input type="hidden" name="topic_reply[topic_id]" value="#{params[:id]}"
-    input type="hidden" name="topic_reply[user_id]" value="#{current_user.id}"
+    input type="hidden" name="topic_reply[user_id]" value="#{current_user.try(:id)}"
     = render partial: "shared/markdown_editor",locals: { f: f }
+
