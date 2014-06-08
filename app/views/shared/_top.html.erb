@@ -5,7 +5,7 @@
     <ul class="nav">
       <li class="<%= controller_name == 'home' && action_name == 'index' ? 'active' : '' %>"><a href="/">首页</a></li>
       <li class="<%= action_name == 'recommend_resources' ? 'active' : '' %>"><a href="/recommend_resources">学习资料</a></li>
-      <li><a href="#">Wiki</a></li>
+      <li class="<%= action_name == 'wiki' ? 'active' : '' %>"><a href="/wiki">Wiki</a></li>
     </ul>
     <form class="navbar-search pull-left" action="/search">
       <input type="text" name="keyword" class="search-query" placeholder="搜索话题" />

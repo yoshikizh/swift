@@ -1,0 +1,27 @@
+scss:
+  ul {
+    list-style: disc; margin-left: 40px;
+    li {}
+  }
+  .resource-content { background-color: rgb(247,247,247); min-height: 400px; }
+
+
+.main-container
+  .topics
+    .title-bar
+      | 在线文档 & 资源 & 开源项目
+  .resource-content
+    .ml25
+      | 在线文档
+    ul
+      li
+        = link_to "The Swift Programming Language 官方在线文档Cocoa小组中文翻译", "http://numbbbbb.github.io/the-swift-programming-language-in-chinese/", target: "_blank"
+      li
+        = link_to "Apple Swift语言基础教程 - 来自极客学院", "http://www.jikexueyuan.com/course/92.html", target: "_blank"
+    .mt10.ml25
+      | 开源小游戏
+    ul
+      li
+        = link_to "小游戏 Flappy", "https://github.com/fullstackio/FlappySwift", target: "_blank"
+      li
+        = link_to "小游戏 2048", "https://github.com/austinzheng/swift-2048", target: "_blank"

@@ -14,4 +14,8 @@ class HomeController < ApplicationController
   def recommend_resources
 
   end
+
+  def wiki
+
+  end
 end

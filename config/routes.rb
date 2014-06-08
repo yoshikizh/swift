@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   root 'home#index'
   get '/search' => "home#index"
   get '/recommend_resources' => "home#recommend_resources"
+  get '/wiki' => "home#wiki"
   get '/:node_name' => "home#index"
 
   resources :nodes do

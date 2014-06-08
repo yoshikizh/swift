@@ -4,6 +4,7 @@
       = link_to "所有话题", @node.id == 1 ? "/" : "/node#{@node.id}", class: params[:tag].blank? ? "active" : ""
       - Node::NODES[@node.id].each do |_tag|
         = link_to _tag, @node.id == 1 ? "/?tag=#{_tag}" : "/node#{Node.find_id_by_tag(_tag)}?tag=#{_tag}", class: params[:tag] == _tag ? "active" : ""
+    = render "shared/flash"
     .clearfix
       .topic-list-warp.fl style="border-right: 1px solid rgb(237,237,237);"
         ul.topic-list
