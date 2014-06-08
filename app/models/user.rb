@@ -18,6 +18,10 @@ class User < ActiveRecord::Base
     self.update_attributes :point => self.point + n
   end
 
+  def admin?
+    self.utype == :admin
+  end
+
   class << self
     def find_first_by_auth_conditions(warden_conditions)
       conditions = warden_conditions.dup

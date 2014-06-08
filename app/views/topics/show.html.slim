@@ -36,7 +36,7 @@ scss:
         .topic-info-left.fl
           .topic-avatar
             = avatar_tag(_topic_user, :size => 64)
-        - if current_user === _topic_user
+        - if current_user === _topic_user || current_user.admin?
           .topic-edit.fr
             = link_to "编辑主题",edit_node_topic_path(params[:node_id],resource),class: "btn btn-primary"
         .topic-info-right.fl
@@ -81,7 +81,7 @@ scss:
                 span style="padding:0px 6px;"
                   | 回复于
                 = before_now _reply.created_at
-              - if current_user === _reply_user
+              - if current_user === _reply_user || current_user.admin?
                 .fr.ml10
                   = link_to "编辑", edit_node_topic_topic_reply_path(params[:node_id],resource.id,_reply)
 
