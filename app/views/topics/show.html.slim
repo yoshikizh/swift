@@ -29,14 +29,16 @@ scss:
         span style="color: grey; padding: 0 3px;"
           = _replies.count
         |条评论
-      .fr
-        = paginate _replies
+
     .topic-warp
       .topic-info.clearfix
         - _topic_user = resource.user
         .topic-info-left.fl
           .topic-avatar
             = avatar_tag(_topic_user, :size => 64)
+        - if current_user === _topic_user
+          .topic-edit.fr
+            = link_to "编辑主题",edit_node_topic_path(params[:node_id],resource),class: "btn btn-primary"
         .topic-info-right.fl
           .topic-name
             = resource.name
@@ -79,6 +81,10 @@ scss:
                 span style="padding:0px 6px;"
                   | 回复于
                 = before_now _reply.created_at
+              - if current_user === _reply_user
+                .fr.ml10
+                  = link_to "编辑", edit_node_topic_topic_reply_path(params[:node_id],resource.id,_reply)
+
               .reply-point.fr
                 = _reply_user.point
                 span style="color: rgb(158,130,130); padding-left: 4px; padding-right: 8px;"
@@ -88,6 +94,7 @@ scss:
                   = _reply_user.stb
                 span style="color: rgb(158,130,130); padding-left: 4px;"
                   | 斯特币
+
     hr/
     .ml25
       = paginate _replies

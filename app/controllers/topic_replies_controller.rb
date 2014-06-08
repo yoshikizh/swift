@@ -10,4 +10,14 @@ class TopicRepliesController < InheritedResources::Base
       redirect_to node_topic_path(params[:node_id],params[:topic_id]),alert: @reply.errors.full_messages.join("\r\n")
     end
   end
+
+  def update
+    @reply = TopicReply.find(params[:id])
+    @reply.update_attributes params.require(:topic_reply).permit(:content)
+    if @reply.save
+      redirect_to node_topic_path(params[:node_id],params[:topic_id]),notice: "保存成功"
+    else
+      redirect_to node_topic_path(params[:node_id],params[:topic_id]),alert: @reply.errors.full_messages.join("\r\n")
+    end
+  end
 end

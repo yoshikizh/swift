@@ -14,14 +14,14 @@
   overflow: hidden; zoom: 1; border-radius: 4px;
   span.page,span.last,span.next,span.first,span.prev{
     display: block; float: left;
-    padding: 6px; background-color: rgb(222,222,222);
+    padding: 6px; background-color: #5c2b46;
     a {
-      color: rgb(58,54,51);
+      color: white;
       span{}
     }
   }
   span.current {
-    color: white; background-color: #5c2b46;
+    color: white; background-color: #e99b9b;
   }
   span:last-child>a, .pagination>span:last-child>span,
   span:first-child>a, .pagination>span:first-child>span { border-radius: 0px; }

@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :nodes do
     resources :topics do
-      resource :topic_replies
+      resources :topic_replies
     end
   end
 

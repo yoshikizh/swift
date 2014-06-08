@@ -68,7 +68,7 @@
           - Node.all_nodes.each do |_tag|
             li= link_to _tag,"/node#{Node.find_id_by_tag(_tag)}?tag=#{_tag}"
 
-    hr/
+    hr style="margin: 0; padding: 0;"
     .ml25
       = paginate @topics
 

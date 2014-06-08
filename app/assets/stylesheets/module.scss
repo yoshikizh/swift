@@ -82,7 +82,9 @@ a.home-blk:hover { text-decoration: none; }
   .topic-info{
     height: 80px;
     .topic-info-left{
-      margin-top: 16px; margin-left: 16px; }
+      margin-top: 16px; margin-left: 16px;
+    }
+    .topic-edit { margin-right: 32px; margin-top: 32px; }
     .topic-info-right{
       margin-top: 16px; margin-left: 8px;
       .topic-name{
@@ -105,7 +107,7 @@ a.home-blk:hover { text-decoration: none; }
       margin-right: 16px;
     }
     .reply-content{
-      margin: 0px 16px 20px 16px; background-color: white; border-radius: 10px; padding: 20px; max-width: 764px; min-width: 284px;
+      margin: 0px 16px 20px 16px; background-color: white; border-radius: 10px; padding: 20px; max-width: 764px; min-width: 360px;
       word-break: break-all;
       .reply-at-warp {
         .reply-at{}

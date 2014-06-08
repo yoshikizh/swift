@@ -1,0 +1,18 @@
+- content_for :head do
+  | <link href="/icheck_square/orange.css" rel="stylesheet">
+  | <script src="/assets/icheck.min.js"></script>
+.main-container
+  h2 发表新话题
+
+  = simple_form_for(@topic || Topic.new,url: node_topic_path(params[:node_id],@topic)) do |f|
+    = f.error_notification
+    .clearfix
+      - Node::NODES[params[:node_id].to_i].each_with_index do |_tag,index|
+        .fl.mr20
+          <input type="radio" name="tag" value="#{_tag}" #{"checked" if _tag == @topic.tag } >
+          span style="padding-left: 6px;"
+            = _tag
+
+    .mt20
+      = f.input :name, required: true, autofocus: true, label: "话题名称  ( 6-32个字符 )", input_html: { style: "width: 884px;" }
+      = render partial: "shared/markdown_editor",locals: { f: f }

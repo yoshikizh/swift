@@ -12,4 +12,15 @@ class TopicsController < InheritedResources::Base
       render :new
     end
   end
+
+  def update
+    @topic = Topic.find(params[:id])
+    @topic.update_attributes params.require(:topic).permit(:name,:content)
+    @topic.tag = params[:tag]
+    if @topic.save
+      redirect_to node_topic_path(@topic.node_id,@topic),notice: "保存成功"
+    else
+      render :edit
+    end
+  end
 end

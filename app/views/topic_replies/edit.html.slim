@@ -1,0 +1,6 @@
+.main-container
+  h2 回复话题
+  = simple_form_for(resource,url: node_topic_topic_reply_path(params[:node_id],params[:topic_id],resource)) do |f|
+    = f.error_notification
+    = render "shared/flash"
+    = render partial: "shared/markdown_editor",locals: { f: f }
