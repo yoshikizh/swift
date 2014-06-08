@@ -88,5 +88,5 @@ Rails.application.configure do
       :exception_recipients => %w{177365340@qq.com}
     }
 
-  config.action_mailer.default_url_options = { host: 'swift-home.com' }
+  config.action_mailer.default_url_options = { host: '115.29.105.133' }
 end

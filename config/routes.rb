@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
   get '/search' => "home#index"
+  get '/recommend_resources' => "home#recommend_resources"
   get '/:node_name' => "home#index"
 
   resources :nodes do
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
       resource :topic_replies
     end
   end
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

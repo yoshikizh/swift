@@ -5,7 +5,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :login, required: true, autofocus: true %>
+    <%= f.input :login, required: true, autofocus: true, input_html: { placeholder: "用户名或邮箱" } %>
   </div>
 
   <div class="form-actions">
@@ -16,6 +16,7 @@
       <div class="fl ml20">
         <%= render "devise/shared/links" %>
       </div>
+    </div>
   </div>
 
 <% end %>

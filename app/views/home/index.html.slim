@@ -1,7 +1,9 @@
 .main-container
   .topics
-    .title-bar
-      = link_to "所有话题"
+    .title-bar.clearfix
+      = link_to "所有话题", "/node#{@node.id}", class: params[:tag].blank? ? "active" : ""
+      - Node::NODES[@node.id].each do |_tag|
+        = link_to _tag, "/node#{Node.find_id_by_tag(_tag)}?tag=#{_tag}", class: params[:tag] == _tag ? "active" : ""
     .clearfix
       .topic-list-warp.fl style="border-right: 1px solid rgb(237,237,237);"
         ul.topic-list
@@ -27,6 +29,8 @@
                   = before_now _topic.created_at
                   span style="color: grey;"
                     | 发表
+                .topic-tag.fr
+                  = link_to (_topic.tag || "无标签"),"/node#{Node.find_id_by_tag(_topic.tag)}?tag=#{_topic.tag}"
                 .topic-name.fl
                   = link_to truncate(_topic.name,length: 40),node_topic_path(@node,_topic)
       .topic-node-warp.fl
@@ -38,13 +42,10 @@
         .top-nodes-title
           | 相关节点
         ul.topic-nodes
-          li= link_to "新人求助"
-          li= link_to "交流讨论"
-          li= link_to "原创教程"
-          li= link_to "转载文章"
+          - Node.all_nodes.each do |_tag|
+            li= link_to _tag,"/node#{Node.find_id_by_tag(_tag)}?tag=#{_tag}"
+
     hr/
     .ml25
       = paginate @topics
 
-coffee:
-  $ ->
