@@ -1,0 +1,20 @@
+.ke-container-swift {
+  display: block;
+  border: 1px solid #CCC;
+  background-color: white;
+  overflow: hidden;
+}
+
+.ke-container-swift .ke-toolbar {
+    border-bottom: 2px solid #CCC;
+    background-color: white;
+    padding: 4px 10px;
+    overflow: hidden;
+}
+
+.ke-container-swift .ke-toolbar .ke-outline {
+    padding: 8px 6px;
+}
+.ke-container-swift .ke-toolbar .ke-separator {
+    height: 31px; border-color: rgb(247,247,247);
+}

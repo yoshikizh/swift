@@ -58,7 +58,7 @@ scss:
               | 斯特币
       .topic-content
         - begin
-          = markdown resource.content
+          = raw resource.content
         - rescue
           | 语法格式错误！
     .reply-warp
@@ -70,7 +70,7 @@ scss:
           .reply-content.fr
             .reply-content-text
               - begin
-                = markdown _reply.content
+                = raw _reply.content
               - rescue
                 | 语法格式错误！
 
@@ -107,5 +107,5 @@ scss:
     = render "shared/flash"
     input type="hidden" name="topic_reply[topic_id]" value="#{params[:id]}"
     input type="hidden" name="topic_reply[user_id]" value="#{current_user.try(:id)}"
-    = render partial: "shared/markdown_editor",locals: { f: f }
+    = render partial: "shared/kindeditor",locals: { f: f }
 
